@@ -1,0 +1,13 @@
+<div class="content border">
+
+  <h2 class="title"><%= story.title %></h2>
+  <p class="has-text-grey-light"><%= story.content %></p>
+  <p>
+    最後編輯時間 <%= time_ago_in_words(story.updated_at) %>
+    <%= link_to "編輯", edit_story_path(story), class: "button is-text is-small" %>
+    <%= link_to "刪除", story_path(story), method: :delete, class: "button is-danger is-small", data: { confirm: "確認刪除?" } %>
+  </p>
+  <hr>
+</div>
+
+
