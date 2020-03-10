@@ -1,7 +1,9 @@
 <div class="content border">
 
   <h2 class="title">
-    <%= link_to story.title, edit_story_path(story.id), class: "has-text-grey-darker" %>
+    <%= link_to story.title, edit_story_path(story), class: "has-text-grey-darker" %>
+
+
     <%= content_tag :span, "已發佈", class: "tag is-primary" if story.published? %>
   </h2>
   <p class="has-text-grey-light"><%= story.content %></p>
