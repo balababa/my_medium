@@ -3,9 +3,21 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
 
+
+<div class="field">
+  <%= f.label :username, "使用者帳號", class: "label" %>
+  <div class="control has-icons-left is-medium">
+    <%= f.text_field :username, autocomplete: "username", class: "input" %>
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+  </div>
+  <p class="help">使用者帳號範例 @allen</p>
+</div>
+
 <div class="field">
   <%= f.label :email, class: "label" %>
-  <div class="control has-icons-left">
+  <div class="control has-icons-left is-medium">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder: "Email" %>
     <span class="icon is-small is-left">
       <i class="fas fa-envelope"></i>
@@ -19,7 +31,7 @@
   <% if @minimum_password_length %>
   <em>(<%= @minimum_password_length %> characters minimum)</em>
   <% end %>
-  <div class="control has-icons-left">
+  <div class="control has-icons-left is-medium">
     <%= f.password_field :password, autocomplete: "new-password", class: "input", placeholder: "Password" %>
     <span class="icon is-small is-left">
       <i class="fas fa-lock"></i>

@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="field">
   <%= f.label :email, class: "label" %>
-  <div class="control has-icons-left">
+  <div class="control has-icons-left is-medium">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
     <span class="icon is-small is-left">
       <i class="fas fa-envelope"></i>
@@ -14,7 +14,7 @@
 
 <div class="field">
   <%= f.label :password, class: "label" %>
-  <div class="control has-icons-left">
+  <div class="control has-icons-left is-medium">
     <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
     <span class="icon is-small is-left">
       <i class="fas fa-lock"></i>
@@ -31,8 +31,8 @@
 <% end %>
 
 <div class="actions">
-  <%= f.submit "Log in", class: "button is-light" %>
+  <%= f.submit "登入", class: "button is-primary is-medium" %>
 </div>
 <% end %>
-
+<hr>
 <%= render "devise/shared/links" %>
