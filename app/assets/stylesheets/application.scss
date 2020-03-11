@@ -1,0 +1,13 @@
+/*
+ *= require_self
+ *= require 'bulma/bulma.css'
+ *= require font_awesome5_webfont
+ */
+
+
+ .navbar-item {
+   .user-avatar {
+     border-radius: 50%;
+     margin-right: 10px;
+   }
+ }

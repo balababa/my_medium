@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :stories
   validates :username, format: { with: /@\w+/,
   message: " must starts with @ and contain at least one letter, number or underscore " }, uniqueness: true
+  has_one_attached :avatar
 end

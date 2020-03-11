@@ -52,6 +52,7 @@
           <% if user_signed_in? %>
 
           <div class="navbar-item has-dropdown is-hoverable">
+            <%= avatar(current_user, 50) %>
             <a class="navbar-link">
               <%= current_user.username %>
             </a>
