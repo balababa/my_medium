@@ -1,0 +1,13 @@
+<article class="media">
+  <div class="media-content">
+    <h2 class="title is-4"><%= link_to story.title, story_page_path(story.user.username, story) , class: "has-text-grey-darker" %></h2>
+    <p class="content"><%= story.content %></p>
+    <footer>
+      <p><%= link_to story.user.username, user_page_path(story.user.username), class: "has-text-grey-darker" %></p>
+      <p class="has-text-grey"><%= story.created_at.strftime("%b %d,%Y") %></p>
+    </footer>
+  </div>
+  <figure class="media-right">
+    <img src="https://fakeimg.pl/150x150/">
+  </figure>
+</article>
