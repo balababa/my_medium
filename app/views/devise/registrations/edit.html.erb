@@ -15,9 +15,10 @@
 </div>
 
 <%= f.label :avartar, "大頭照", class: "label" %>
-<div id="file-js-example" class="file has-name">
+<div id="file-js-example" class="file has-name" data-controller="filename" >
   <%= f.label :avatar, class: "file-label" do %>
-    <%= f.file_field :avatar, class: "file-input", type: "file" %>
+    <%= f.file_field :avatar, class: "file-input", type: "file", :"data-target" => "filename.target" %>
+  
     <span class="file-cta">
       <span class="file-icon">
         <i class="fas fa-upload"></i>
@@ -26,7 +27,7 @@
         Choose a file…
       </span>
     </span>
-    <span class="file-name">
+    <span data-target="filename.output">
       No file uploaded
     </span>
     <% end %>
@@ -99,4 +100,3 @@
 </p> -->
 
 <%= link_to "Back", :back, class: 'button' %>
-<%= javascript_pack_tag 'upload_file_name' %>
