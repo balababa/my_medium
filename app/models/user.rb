@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :stories
-  validates :username, format: { with: /@\w+/,
-  message: " must starts with @ and contain at least one letter, number or underscore " }, uniqueness: true
+  validates :username, format: { with: /\w+/,
+  message: " must  contain at least one letter, number or underscore " }, uniqueness: true
   has_one_attached :avatar
 end
