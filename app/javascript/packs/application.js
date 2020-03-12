@@ -1,0 +1,1 @@
+import '../close_flash'

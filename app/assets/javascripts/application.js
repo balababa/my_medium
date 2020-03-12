@@ -14,6 +14,5 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//=require close_notification
-//=require filename_display
+
 
