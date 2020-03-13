@@ -14,20 +14,27 @@ form {
     display: flex;
     align-items: center;
 
+    .column {
+      flex-direction: column;
+      .row {
+        display: flex;
+      }
+    }
+
     img.avatar {
-      border-radius: 25px;
+      border-radius: 50%;
     }
 
     .username {
-      padding: 3px;
-      margin-left: 1em;
+    
+      margin-left: 0em;
     }
 
     .follow-button {
       border: solid darkgray 1px;
       padding: 1px 8px;
-      margin-left: 1em;
-      border-radius: 3px;
+      margin-left: 0.7em;
+      border-radius: 4px;
       color: darkgray;
 
       &:hover {
