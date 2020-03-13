@@ -8,6 +8,10 @@
     </footer>
   </div>
   <figure class="media-right">
-    <img src="https://picsum.photos/150/150">
+    <% if story.cover_image.attached? %>
+      <%= cover_image(story, 150) %>
+    <% else %>
+    <img src="https://picsum.photos/150/150" alt="">
+    <% end %> 
   </figure>
 </article>
