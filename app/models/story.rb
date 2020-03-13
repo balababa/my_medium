@@ -15,6 +15,7 @@ class Story < ApplicationRecord
 
   # scopes
   default_scope { where(deleted_at: nil )}
+  scope :published_stories, -> { where(status: :published) }
 
   # instance_methods
   def destroy
