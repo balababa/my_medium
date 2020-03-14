@@ -1,9 +1,10 @@
 require "babosa"
 class Story < ApplicationRecord
+  acts_as_paranoid
+
   extend FriendlyId
   friendly_id :slug_candidate, use: :slugged
   include AASM
-  
   
   # relationship
   belongs_to :user
@@ -14,14 +15,10 @@ class Story < ApplicationRecord
 
 
   # scopes
-  default_scope { where(deleted_at: nil )}
+  # default_scope { where(deleted_at: nil )}
   scope :published_stories, -> { published.with_attached_cover_image.order(created_at: :desc).includes(:user) }
 
-  # instance_methods
-  def destroy
-    self.update(deleted_at: Time.now)
-  end
-
+ # instance_methods
   def normalize_friendly_id(input)
     input.to_s.to_slug.normalize(transliterations: :russian).to_s
   end
