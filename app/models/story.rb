@@ -9,6 +9,7 @@ class Story < ApplicationRecord
   # relationship
   belongs_to :user
   has_one_attached :cover_image
+  has_many :comments
 
   # validation
   validates :title, presence: true

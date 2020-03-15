@@ -1,0 +1,15 @@
+<article class="comment">
+  <span class="profile">
+    <%= image_tag comment.user.avatar.variant(resize: "50x50"), class: "avatar" if comment.user.avatar.attached? %>
+    <span class="column">
+      <div class="row">
+        <span class="username"><%= link_to comment.user.username, user_page_path(comment.user.username), class: "has-text-dark"  %></span>
+      </div>
+      <div class="row">
+        <%= comment.created_at.strftime("%b %d, %Y") %>
+      </div>
+ 
+    </span>
+  </span>
+  <%= simple_format(comment.content) %>
+</article>

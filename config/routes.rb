@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :stories
+  resources :stories do
+    resources :comments, only: [:create]
+
+  end
+
 
   # /@allen/文章標題-123
   get '/@:username/:story_id', to: 'pages#show', as: "story_page"

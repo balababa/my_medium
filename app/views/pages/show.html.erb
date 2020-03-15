@@ -22,40 +22,20 @@
       <p><%= simple_format(@story.content) %></p>
 
       <footer>
-        拍手 0
+        <%= link_to "#", class: "clapButton has-text-primary" do %>
+        <i class="fas fa-thumbs-up fa-3x"></i>
+        <span class="is-size-1 clapCount">0</span>
+        <% end %>
+   
+ 
       </footer>
     </article>
     <hr>
     <section class="comments">
       <h2>留言</h2>
-
-      <section class="comment-editor">
-        <form action="" method="post">
-          <textarea name="" id="" rows="8" cols="40" class="textarea is-small"></textarea>
-          <button type="submit" class="button is-primary is-fullwidth">送出</button>
-        </form>
-      </section>
-
-      <section>
-        <article class="comment">
-          <span class="profile">
-            <img src="https://fakeimg.pl/50x50/" class="avatar">
-            <span class="username">高見龍</span>
-          </span>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
-        </article>
-
-        <article class="comment">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
-        </article>
+      <%= render "comment_area", story: @story, comment: @comment %>
+      <section class="comment-list">
+         <%= render  partial: "comment", collection: @comments %>
       </section>
     </section>
   </section>
