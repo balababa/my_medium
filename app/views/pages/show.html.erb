@@ -8,10 +8,10 @@
       <span class="column">
         <div class="row">
           <span class="username"><%= link_to @story.user.username, user_page_path(@story.user.username), class: "has-text-dark"  %></span>
-          <%= link_to "Follow", '#',class: "follow-button", 
-                                    data: { action: 'user#follow', 
-                                    user: @story.user.id, 
-                                    target: 'user.followButton' } %>
+          <%= link_to  '#',class: "follow-button", data: { action: 'user#follow', user: @story.user.id, 
+          target: 'user.followButton' } do %>
+            <%= (user_signed_in? && current_user.follow?(@story.user)) ? 'Followed' : 'Follow' %>
+          <% end %>
         </div>
         <div class="row">
           <%= @story.created_at.strftime("%b %d, %Y") %>
