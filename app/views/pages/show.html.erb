@@ -2,13 +2,16 @@
   <section class="column is-offset-3 is-6">
     <h1 class="title"><%= @story.title %></h1>
 
-    <span class="profile">
+    <span class="profile" data-controller="user">
 
       <%= image_tag @story.user.avatar.variant(resize: "50x50"), class: "avatar" if @story.user.avatar.attached? %>
       <span class="column">
         <div class="row">
           <span class="username"><%= link_to @story.user.username, user_page_path(@story.user.username), class: "has-text-dark"  %></span>
-          <%= link_to "Follow", '#',class: "follow-button" %>
+          <%= link_to "Follow", '#',class: "follow-button", 
+                                    data: { action: 'user#follow', 
+                                    user: @story.user.id, 
+                                    target: 'user.followButton' } %>
         </div>
         <div class="row">
           <%= @story.created_at.strftime("%b %d, %Y") %>
