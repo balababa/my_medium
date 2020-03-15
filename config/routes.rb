@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :stories do
     resources :comments, only: [:create]
-
+    post :clap, on: :member
   end
 
 

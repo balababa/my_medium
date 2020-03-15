@@ -21,13 +21,11 @@
       <%= image_tag @story.cover_image.variant(resize: "1000x500"), class: "cover-image" if @story.cover_image.attached? %>
       <p><%= simple_format(@story.content) %></p>
 
-      <footer>
-        <%= link_to "#", class: "clapButton has-text-primary" do %>
+      <footer data-controller="story">
+        <%= link_to "#", class: "clapButton has-text-primary", data: { action: "story#addClap", slug: @story.slug } do %>
         <i class="fas fa-thumbs-up fa-3x"></i>
-        <span class="is-size-1 clapCount">0</span>
+        <span class="is-size-1 clapCount" data-target="story.clapCount"><%= @story.clap %></span>
         <% end %>
-   
- 
       </footer>
     </article>
     <hr>
