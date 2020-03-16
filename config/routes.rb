@@ -3,18 +3,23 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  # users/:id/follow 
-  resources :users, only: [] do
-    member do
-      post :follow
+  namespace :api do
+    resources :users, only: [] do
+      member do
+        post :follow
+      end
     end
+
+    resources :stories, only: [] do
+      post :clap, on: :member
+    end  
   end
 
+  
 
 
   resources :stories do
     resources :comments, only: [:create]
-    post :clap, on: :member
   end
 
 
