@@ -13,9 +13,16 @@
             <%= (user_signed_in? && current_user.follow?(@story.user)) ? 'Followed' : 'Follow' %>
           <% end %>
         </div>
-        <div class="row">
+        <div class="row row2">
           <%= @story.created_at.strftime("%b %d, %Y") %>
-        </div>
+          <%= link_to '#', class: "has-text-dark", data: { action: 'user#bookmark', slug: @story.slug } do %>
+          <% if user_signed_in? && current_user.bookmark?(@story) %>
+            <i class="fas fa-bookmark fa-lg" data-target="user.bookmark"></i>
+          <% else %>
+            <i class="far fa-bookmark fa-lg" data-target="user.bookmark"></i>
+          <% end %>
+          <% end %>
+          </div>
    
       </span>
     </span>
@@ -24,10 +31,10 @@
       <%= image_tag @story.cover_image.variant(resize: "1000x500"), class: "cover-image" if @story.cover_image.attached? %>
       <p><%= simple_format(@story.content) %></p>
 
-      <footer data-controller="story">
+      <footer data-controller="story" >
         <%= link_to "#", class: "clapButton has-text-primary", data: { action: "story#addClap", slug: @story.slug } do %>
-        <i class="fas fa-thumbs-up fa-3x"></i>
-        <span class="is-size-1 clapCount" data-target="story.clapCount"><%= @story.clap %></span>
+        <i class="fas fa-thumbs-up fa-2x clap"></i>
+        <span class="is-size-2 clapCount" data-target="story.clapCount"><%= @story.clap %></span>
         <% end %>
       </footer>
     </article>
