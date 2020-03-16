@@ -6,7 +6,19 @@ export default class extends Controller {
 
 
   connect() {
-    console.log("add clap count by stimulus")
+    var timeout;
+    var count = 0;
+    let button = this.clapCountTarget.parentNode;
+    button.addEventListener("mousedown", function(){ 
+      timeout = setInterval(( () => button.click() ), 100);
+     });
+
+     button.addEventListener("mouseup", function(){ 
+      clearTimeout(timeout);
+     });
+
+     
+
   }
 
   //  /stories/:id/clap
