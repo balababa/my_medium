@@ -16,6 +16,8 @@ Rails.application.routes.draw do
         post :bookmark
       end
     end  
+
+    post :upload_image, to: "utils#upload_image"
   end
 
   
