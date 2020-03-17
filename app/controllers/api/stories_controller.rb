@@ -1,8 +1,8 @@
 class Api::StoriesController < Api::BaseController
   before_action :find_story
   
-  def clap
-    @story.increment!(:clap)
+  def clap(by = 1)
+    @story.increment!(:clap, by)
     render json: { status: @story.clap}
 
   end

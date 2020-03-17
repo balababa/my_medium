@@ -6,7 +6,7 @@
 
     <%= content_tag :span, "已發佈", class: "tag is-primary" if story.published? %>
   </h2>
-  <p class="has-text-grey-light"><%= story.content %></p>
+  <p class="has-text-grey-light"><%= strip_tags(story.content).truncate(200) %></p>
   <p>
     最後編輯時間 <%= time_ago_in_words(story.updated_at) %>
     <%= link_to "編輯", edit_story_path(story.id), class: "button is-text is-small" %>

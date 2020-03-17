@@ -1,5 +1,5 @@
 <%= render "devise/shared/error_messages", resource: story if story.errors.any? %>
-<%= form_for(story) do |form| %>
+<%= form_for(story, html: { class: "story-editor" })  do |form| %>
 
 <%= form.label :cover_image, "封面圖", class: "label" %>
 <%= cover_image(story, size = 250) %> 
@@ -28,14 +28,21 @@
 
 <div class="field">
   <%= form.label :content, "內文", class: "label" %>
-  <%= form.text_area :content, rows: 10, class: "textarea is-primary" %>
+  <div class="fr-view">
+  <%= form.text_area :content, rows: 10, class: "textarea is-primary", data: {controller: "froala"} %>
+  </div>
 </div>
 
 <div class="field">
-  <%= form.submit "儲存草稿", name: "save_as_draft", class: "button is-medium" %>
+  <% if story.published? %>
+    <%= form.submit "更新", name: "save_as_draft", class: "button is-medium" %>
+  <% else %>
+    <%= form.submit "儲存草稿", name: "save_as_draft", class: "button is-medium" %>
+  <% end %>
   <%= form.submit "發布文章", name: "publish", class: "button is-medium is-primary" if story.may_publish? %>
   <%= form.submit "下架文章", name: "unpublish", class: "button is-medium is-danger" if story.may_unpublish? %>
 
 </div>
 
 <% end %>
+

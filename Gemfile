@@ -41,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'hirb'
   gem 'hirb-unicode', '~> 0.0.5'
+  gem "lol_dba"
 end
 
 group :development do
