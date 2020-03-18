@@ -73,3 +73,5 @@ gem 'babosa', '~> 1.0', '>= 1.0.3'
 gem 'image_processing'
 gem 'webpacker', '~> 4.2', '>= 4.2.2'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
+gem 'figaro', '~> 1.0'
+gem "braintree", "~> 2.101.0"
