@@ -51,9 +51,12 @@
         <div class="buttons">
           <% if user_signed_in? %>
 
-          <div class="navbar-item has-dropdown is-hoverable" id="avatar">
-            <%= avatar(current_user, 50) %>
+          <div class="navbar-item has-dropdown is-hoverable" id="avatar">            
             <a class="navbar-link">
+              <%= content_tag :i, "", class: "fas fa-crown  fa-lg has-text-primary"  if current_user.vip_user? %>
+              <%= content_tag :i, "", class: "fas fa-crown  fa-lg has-text-danger"  if current_user.platinum_user? %>
+
+              <%= avatar(current_user, 50) %>
               <%= current_user.username %>
             </a>
 
