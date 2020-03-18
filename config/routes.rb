@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     post :upload_image, to: "utils#upload_image"
   end
 
+  resources :users, only: [] do
+    collection do
+      get :pricing
+      get :payment
+    end
+  end
   
 
 
