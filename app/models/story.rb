@@ -20,8 +20,12 @@ class Story < ApplicationRecord
   scope :published_stories, -> { published.with_attached_cover_image.order(created_at: :desc).includes(:user) }
 
  # instance_methods
+ def should_generate_new_friendly_id? #will change the slug if the name changed
+  title_changed?
+end
+
   def normalize_friendly_id(input)
-    input.to_s.to_slug.normalize(transliterations: :russian).to_s
+    input.to_s.to_slug.normalize().to_s
   end
 
   aasm(column: :status, no_direct_assignment: true) do
