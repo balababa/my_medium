@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "froala-editor": "^3.1.1",
-    "webpack-dev-server": "^3.10.3"
-  }
+    "webpack-dev-server": "^3.10.3",
+    "@rails/webpacker": "4.2.2"
+  },
+  "heroku-postbuild": "webpack -p"
 }
