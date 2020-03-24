@@ -1,24 +1,71 @@
-# README
+# My_medium
+A project designed based on [Medium](https://medium.com/) for practicing RoR.
+The project is originally created by [Eddie Kao](https://github.com/kaochenlong/my_medium)
+## Prerequisites
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The setups steps expect following tools installed on the system.
 
-Things you may want to cover:
+- Git
+- Ruby 2.6.3
+- Rails 5.2.4
+- Yarn
+- NodeJs
+- Postgresql
 
-* Ruby version
+## Packages / Toos
+* [devise](https://github.com/heartcombo/devise): Framework for authentication
+* [Bulma](https://github.com/jgthms/bulma): CSS framework
+* [AASM](https://github.com/aasm/aasm): State machine, make model fat and controller skinny by defining state and event in models.
+* [friendly_id](https://github.com/norman/friendly_id): Beautify url by changing slug to human-friendly string(e.g. story title)
+* [babosa](https://github.com/norman/babosa): Library of `friendly_id` for string manipulation
+* [webpacker](https://github.com/rails/webpacker): Asssets bundler
+* [stimulusJS](https://chloerei.com/2018/02/24/stimulus/): JS framework for UJS working well with turbolinks
+* [foreman](https://github.com/theforeman/foreman): Quickly deploy  application by defining processes and jobs in `Procfile`
+* [paranoia](https://github.com/rubysherpas/paranoia): Implementation of soft delete by add new column `deleted_at` to model and overide `delete` and `destroy` 
+* [yarn](https://github.com/yarnpkg/yarn): Package manager for JS
+* [Froala](https://github.com/froala/wysiwyg-editor): Embedded WYSIWYG text editor
+* [figaro](https://github.com/laserlemon/figaro): Git-ignored application configuration defined in `config/application.yml`
+* [axios](https://github.com/axios/axios) : Javascript library for making HTTP requests or XHR based on Promise
+* [Braintree](https://www.braintreepayments.com/): Third party payment service
+## Installation
 
-* System dependencies
+### 1. Check out the repository
 
-* Configuration
+```bash
+git clone git@github.com:balababa/my_medium.git
+```
+### 2. Create application.yml file
 
-* Database creation
+```bash
+cp config/application.yml.sample config/application.yml
+```
+> set the environment variables needed in application.yml.
 
-* Database initialization
+### 3. Create and setup the database
 
-* How to run the test suite
+Run the following commands to create and setup the database.
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+bin/rails db:create
+bin/rails db:migrate
+```
+> You may need to set up database configuration in `config/database.yml`
 
-* Deployment instructions
+### 4. Start the Rails server
 
-* ...
+```ruby
+bin/rails s
+```
+You also need to start webpack-dev-server in a separate terminal to watch for changes in `app/javascript/packs/*.js` and compile it immediately.
+```ruby
+bin/webpack-dev-server
+```
+
+
+---
+
+Or you can start all processes and jobs needed to run by
+```ruby
+foreman start 
+```
+> The processes are defined in `~/Procfile`
