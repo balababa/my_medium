@@ -1,6 +1,7 @@
 # My_medium
 A project designed based on [Medium](https://medium.com/) for practicing RoR.
 The project is originally created by [Eddie Kao](https://github.com/kaochenlong/my_medium)
+
 首頁Logo 版權屬 Bulma 所有
 ## Prerequisites
 The setups steps expect following tools installed on the system.
