@@ -10,7 +10,7 @@ The setups steps expect following tools installed on the system.
 - Ruby 2.6.3
 - Rails 5.2.4
 - Yarn
-- NodeJs
+- Node
 - Postgresql
 
 ## Packages / Toos
@@ -41,8 +41,13 @@ git clone git@github.com:balababa/my_medium.git
 cp config/application.yml.sample config/application.yml
 ```
 > set the environment variables needed in application.yml.
+### 3. Install gems
 
-### 3. Create and setup the database
+```ruby
+bundle install
+```
+
+### 4. Create and setup the database
 
 Run the following commands to create and setup the database.
 
@@ -52,7 +57,7 @@ bin/rails db:migrate
 ```
 > You may need to set up database configuration in `config/database.yml`
 
-### 4. Start the Rails server
+### 5. Start the Rails server
 
 ```ruby
 bin/rails s
