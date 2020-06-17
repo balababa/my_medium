@@ -1,0 +1,13 @@
+<section class="container">
+  <% @users.each do |user| %>
+  <%= link_to user_page_path(user.username) do %>
+    <div class="card">
+      <div class="media-content">
+        <p class="title is-4"><%= user.username %></p>
+        <p class="subtitle is-6"><%= "@#{user.username}" %></p>
+      </div>
+    </div>
+  <% end %>
+  <hr>
+  <% end %>
+</section>

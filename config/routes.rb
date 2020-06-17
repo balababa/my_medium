@@ -36,11 +36,11 @@ Rails.application.routes.draw do
 
 
   # /@allen/文章標題-123
-  get '/@:username/:story_id', to: 'pages#show', as: "story_page"
-  
+  get '/@:username/:story_id', to: 'pages#show', as: "story_page", constraints: { story_id: /\d/ }
+  get '/@:username/bookmarks', to: 'users#bookmarks', as: "user_bookmark"
+  get '/@:username/followings', to: 'users#followings', as: "user_following"
   # /@allen
   get '/@:username', to: 'pages#user', as: "user_page"
-  get '/demo', to: 'pages#demo'
 
   root 'pages#index'  
 end

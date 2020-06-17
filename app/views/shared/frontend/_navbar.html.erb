@@ -69,6 +69,10 @@
               <hr class="navbar-divider">
               <%= link_to "個人資料", edit_user_registration_path, class: "navbar-item is-light" %>
               <hr class="navbar-divider">
+              <%= link_to "書籤", user_bookmark_path(current_user.username), class: "navbar-item is-light" %>
+              <hr class="navbar-divider">
+              <%= link_to "追蹤", user_following_path(current_user.username), class: "navbar-item is-light" %>
+              <hr class="navbar-divider">
               <%= link_to "登出", destroy_user_session_path, method: :delete, class: "navbar-item", data: {confirm:"確定登出?"} %>
             </div>
           </div>
