@@ -16,7 +16,7 @@ class Story < ApplicationRecord
 
 
   # scopes
-  # default_scope { where(deleted_at: nil )}
+  # default_scope { where(deleted_at: nil )} don't use
   scope :published_stories, -> { published.with_attached_cover_image.order(created_at: :desc).includes(:user) }
 
  # instance_methods

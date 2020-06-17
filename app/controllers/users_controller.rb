@@ -3,6 +3,14 @@ class UsersController < ApplicationController
   def pricing
   end
 
+  def bookmarks
+    @stories = Story.find(current_user.bookmarks.map {|bookmark| bookmark[:story_id]})
+  end
+
+  def followings
+    @users = User.find(current_user.follows.map {|following| following[:following_id]})
+  end
+
   def payment
     @fee = ENV["price_#{params[:type]}"]
     @payment_type = (params[:type] == 'vip') ? 'VIP 會員' : '白金會員'

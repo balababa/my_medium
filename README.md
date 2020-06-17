@@ -43,9 +43,10 @@ cp config/application.yml.sample config/application.yml
 > set the environment variables needed in application.yml.
 ### 3. Install gems
 
-```bash
+```ruby
 bundle install
 ```
+
 ### 4. Create and setup the database
 
 Run the following commands to create and setup the database.
