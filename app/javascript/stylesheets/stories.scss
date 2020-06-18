@@ -115,3 +115,22 @@ form.story-editor {
     }
   }
 }
+
+.follow-button {
+  border: solid darkgray 1px;
+  padding: 1px 8px;
+  margin-left: 0.7em;
+  border-radius: 4px;
+  color: darkgray;
+
+}
+
+.followed-button {
+  border: solid darkgray 1px;
+  padding: 1px 8px;
+  margin-left: 0.7em;
+  border-radius: 4px;
+  color: white;
+  background-color: darkgray;
+
+}

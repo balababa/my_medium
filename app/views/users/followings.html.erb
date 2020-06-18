@@ -1,10 +1,17 @@
 <section class="container">
   <% @users.each do |user| %>
   <%= link_to user_page_path(user.username) do %>
-    <div class="card">
+    <div class="card" data-controller="user">
       <div class="media-content">
         <p class="title is-4"><%= user.username %></p>
-        <p class="subtitle is-6"><%= "@#{user.username}" %></p>
+        <span class="subtitle is-6"><%= "@#{user.username}" %></span>
+        <span>
+          <%= link_to  '#',class: "follow-button", data: { action: 'user#follow', user: user.id, 
+          target: 'user.followButton' } do %>
+            <%= (user_signed_in? && current_user.follow?(user)) ? 'Followed' : 'Follow' %>
+          <% end %>
+        </span>
+
       </div>
     </div>
   <% end %>
