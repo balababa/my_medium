@@ -30,7 +30,7 @@ The setups steps expect following tools installed on the system.
 * [Braintree](https://www.braintreepayments.com/): Third party payment service
 ## Installation
 
-### 1. Check out the repository
+### 1. Clone the repository
 
 ```bash
 git clone git@github.com:balababa/my_medium.git
